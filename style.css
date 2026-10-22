@@ -506,3 +506,7 @@ html { overflow-x: hidden; }
 @media (max-width: 960px) {
   .reveal-right { transform: translateY(28px); }
 }
+
+/* ===== KONTAKT-LINK IM FOOTER ===== */
+.footer-inner a { color: var(--cyan); text-decoration: none; transition: color .2s ease; }
+.footer-inner a:hover { color: #fff; text-decoration: underline; }
