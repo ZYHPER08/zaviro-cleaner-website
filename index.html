@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZAVIRO Cleaner – Schneller Windows-Cleaner</title>
+  <meta name="description" content="ZAVIRO Cleaner: Systembereinigung, Speicher-Übersicht, Duplikate, Autostart, Prozesse, Registry-Check, Treiber-Update und Selbst-Update – kostenlos und ohne Bloatware." />
+  <meta name="theme-color" content="#0a0a14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Hintergrund: Partikel + leuchtende Orbs -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="orb orb-violet" aria-hidden="true"></div>
+  <div class="orb orb-cyan" aria-hidden="true"></div>
+  <div class="orb orb-pink" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#hero">
+        <span class="brand-glow-ring"><img class="brand-logo" src="logo.png" alt="ZAVIRO Logo" /></span>
+        <span class="brand-text"><strong>ZAVIRO</strong><small>CLEANER</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero" class="nav-link active">Start</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#storage" class="nav-link">Speicher</a>
+        <a href="#safety" class="nav-link">Sicherheit</a>
+        <a href="#screenshots" class="nav-link">Screenshots</a>
+        <a href="#changelog" class="nav-link">Changelog</a>
+      </nav>
+      <a class="btn btn-primary btn-sm topbar-cta" href="#download">
+        <span class="btn-glow"></span>⬇ Download
+      </a>
+      <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="badge reveal">v1.2.0 · WINDOWS 10/11 · x64</span>
+          <h1 class="reveal delay-1">
+            DEIN SYSTEM.<br />
+            <span class="grad-text" data-text="BLEIBT SAUBER.">BLEIBT SAUBER.</span>
+          </h1>
+          <p class="reveal delay-2">
+            Systembereinigung, Speicher-Übersicht, Duplikate, Autostart-Verwaltung, Prozesse,
+            Registry-Check und Treiber-Update – gebündelt in einer schlanken Oberfläche.
+            Kein Bloat, keine Werbung, kein Cloud-Zwang.
+          </p>
+          <div class="hero-actions reveal delay-3">
+            <a class="btn btn-primary btn-lg" href="#download"><span class="btn-glow"></span>⬇ Kostenlos laden</a>
+            <a class="btn btn-ghost btn-lg" href="#features">Features erkunden</a>
+          </div>
+          <div class="hero-stats reveal delay-4">
+            <div class="stat"><strong class="counter" data-target="9">0</strong><span>Module</span></div>
+            <div class="stat"><strong>0&nbsp;€</strong><span>Preis</span></div>
+            <div class="stat"><strong class="counter" data-target="77">0</strong><span>MB Installer</span></div>
+            <div class="stat"><strong class="counter" data-target="1">0</strong><span>Klick zum Scan</span></div>
+          </div>
+        </div>
+        <div class="hero-visual reveal-right">
+          <div class="hero-banner-frame">
+            <img class="hero-banner" src="img/screenshot-dashboard.png" alt="ZAVIRO Cleaner – Dashboard" />
+            <div class="hero-banner-glow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- SCREENSHOTS -->
+    <section class="section product-preview" id="screenshots">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Echte Oberfläche</span>
+          <h2 class="section-title">Keine Fake-Daten.<br /><span class="grad-text">Das ist die App.</span></h2>
+          <p class="section-sub">Alle Screenshots stammen direkt aus ZAVIRO Cleaner v1.2.0 – inklusive echter Laufwerksdaten.</p>
+        </div>
+        <div class="shot-grid">
+          <figure class="shot reveal">
+            <div class="shot-frame">
+              <div class="mock-titlebar"><span></span><span></span><span></span><div class="mock-title">Dashboard</div></div>
+              <img src="img/screenshot-dashboard.png" alt="Dashboard mit Speicher-Widget und Schnellaktionen" loading="lazy" />
+            </div>
+            <figcaption>Dashboard – Status auf einen Blick, Schnellaktionen für die wichtigsten Reinigungszonen.</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="shot-frame">
+              <div class="mock-titlebar"><span></span><span></span><span></span><div class="mock-title">Speicher</div></div>
+              <img src="img/screenshot-storage.png" alt="Speicher-Übersicht aller Laufwerke mit Belegung" loading="lazy" />
+            </div>
+            <figcaption>Speicher – alle Laufwerke mit frei, belegt und gesamt. SSD, HDD, NVMe und USB werden erkannt.</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="shot-frame">
+              <div class="mock-titlebar"><span></span><span></span><span></span><div class="mock-title">Treiber</div></div>
+              <img src="img/screenshot-drivers.png" alt="Treiber-Prüfung mit Windows-Update-Option" loading="lazy" />
+            </div>
+            <figcaption>Treiber – installierte Gerätetreiber prüfen, Updates kommen signiert über Windows Update.</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="shot-frame">
+              <div class="mock-titlebar"><span></span><span></span><span></span><div class="mock-title">Einstellungen</div></div>
+              <img src="img/screenshot-settings.png" alt="Einstellungen mit Selbst-Update und Administratorrechten" loading="lazy" />
+            </div>
+            <figcaption>Einstellungen – Selbst-Update, Administratorrechte, Sprache und Akzentfarbe.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Feature-Set</span>
+          <h2 class="section-title">Neun Module.<br /><span class="grad-text">Ein Cleaner.</span></h2>
+          <p class="section-sub">Alles, was Windows selbst mitbringt – aber übersichtlich, schnell und ohne Risiko.</p>
+        </div>
+        <div class="feature-grid" id="featureGrid">
+          <div class="feature-card glow-card reveal"><span class="feature-tag">Bereinigung</span><h3>Systembereinigung</h3><p>Temp-Dateien, Papierkorb, Browser-Cache, Logs und Update-Reste. Scan mit Vorschau, löschen mit Bestätigung.</p></div>
+          <div class="feature-card glow-card reveal"><span class="feature-tag">Übersicht</span><h3>Speicher-Ansicht</h3><p>Jedes Laufwerk mit frei, belegt und gesamt – inklusive Erkennung von SSD, HDD, NVMe und USB-Laufwerken.</p></div>
+          <div class="feature-card glow-card reveal"><span class="feature-tag">Dateien</span><h3>Duplikate</h3><p>Identische Dateien über den Inhalt finden, nach Ordner und Mindestgröße filtern, in den Papierkorb verschieben.</p></div>
+          <div class="feature-card glow-card reveal"><span class="feature-tag">Dateien</span><h3>Große Dateien</h3><p>Die Platzfresser im gewählten Ordner sofort sehen – mit verständlicher Größenangabe und Sortierung.</p></div>
+          <div class="feature-card glow-card reveal"><span class="feature-tag">System</span><h3>Autostart</h3><p>Alle Programme, die beim Start mitlaufen – nach System und Benutzer getrennt. Deaktivieren oder entfernen.</p></div>
+          <div class="feature-card glow-card reveal"><span class="feature-tag">System</span><h3>Prozesse</h3><p>Nach Arbeitsspeicher sortiert. RAM fressen beenden, geschützte Systemprozesse werden nie angetastet.</p></div>
+          <div class="feature-card glow-card reveal"><span class="feature-tag">Diagnose</span><h3>Registry-Check</h3><p>Nur lesend. Verwaiste Einträge und ungültige Verweise werden gemeldet – es wird nie automatisch gelöscht.</p></div>
+          <div class="feature-card glow-card reveal"><span class="feature-tag">Treiber</span><h3>Treiber-Update</h3><p>Gerätetreiber prüfen und Updates anstoßen – ausschließlich signiert über Windows Update.</p></div>
+          <div class="feature-card glow-card reveal"><span class="feature-tag">Updates</span><h3>Selbst-Update</h3><p>Prüft beim Start auf neue Versionen, lädt sie im Hintergrund und installiert sie mit einem Klick.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPEICHER -->
+    <section class="section section-alt" id="storage">
+      <div class="container split">
+        <div class="split-copy reveal">
+          <span class="eyebrow">Speicher-Übersicht</span>
+          <h2 class="section-title">Wo ist der<br /><span class="grad-text">Platz hin?</span></h2>
+          <p class="section-sub">
+            ZAVIRO Cleaner liest alle logischen Laufwerke aus, ordnet sie internen Datenträgern,
+            Wechseldatenträgern und USB-Geräten zu und zeigt dir pro Laufwerk den freien,
+            den belegten und den Gesamtplatz – inklusive Prozentbalken.
+          </p>
+          <ul class="check-list">
+            <li>Gesamt-, freier und belegter Speicher pro Laufwerk</li>
+            <li>Automatische Erkennung von SSD, HDD, NVMe und USB</li>
+            <li>Summenübersicht über alle Datenträger</li>
+            <li>Farbige Balken: sofort sichtbar, wo es eng wird</li>
+            <li>Ohne Administratorrechte nutzbar</li>
+          </ul>
+        </div>
+        <div class="split-visual reveal-right">
+          <div class="perf-panel glow-card">
+            <div class="perf-row"><span>C:</span><div class="perf-bar"><i style="--w:91%"></i></div><b>91&nbsp;%</b></div>
+            <div class="perf-row"><span>D:</span><div class="perf-bar"><i style="--w:79%"></i></div><b>79&nbsp;%</b></div>
+            <div class="perf-row"><span>E:</span><div class="perf-bar"><i style="--w:46%"></i></div><b>46&nbsp;%</b></div>
+            <div class="perf-row"><span>F:</span><div class="perf-bar temp"><i style="--w:0%"></i></div><b>–</b></div>
+            <div class="perf-fps"><span class="counter" data-target="65">0</span><small>% BELEGT</small></div>
+          </div>
+          <p class="shot-note">Live-Snapshot aus der App: 4 Laufwerke, 1.80&nbsp;TB gesamt, 639&nbsp;GB frei.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SICHERHEIT -->
+    <section class="section" id="safety">
+      <div class="container split reverse">
+        <div class="split-copy reveal">
+          <span class="eyebrow">Sicherheit</span>
+          <h2 class="section-title">Löscht nur,<br /><span class="grad-text">wenn du es willst.</span></h2>
+          <p class="section-sub">
+            Ein Cleaner ist nur so gut wie seine Vorsicht. ZAVIRO Cleaner arbeitet deshalb
+            standardmäßig mit Vorschau und Rückfrage, sperrt sensible Systempfade und
+            braucht Administratorrechte nur dort, wo es wirklich nötig ist.
+          </p>
+          <ul class="check-list">
+            <li>Bestätigungsdialog vor jedem endgültigen Löschen</li>
+            <li>Duplikate landen im Papierkorb, nicht sofort im Nirwana</li>
+            <li>Registry-Check ist rein lesend</li>
+            <li>Systemprozesse sind geschützt und lassen sich nicht beenden</li>
+            <li>Admin-Rechte nur per bewusstem Neustart mit UAC-Abfrage</li>
+            <li>Kein Telemetrie-Server, keine Konto-Pflicht</li>
+          </ul>
+        </div>
+        <div class="split-visual reveal-right">
+          <div class="ai-chat glow-card">
+            <div class="ai-msg user">Bereinigung abgeschlossen</div>
+            <div class="ai-msg bot">1.284 Dateien gelöscht, 3,7 GB freigegeben. 12 Bereiche wurden übersprungen, weil sie Administratorrechte benötigen.</div>
+            <div class="ai-input-row"><span class="ai-cursor"></span><span class="ai-placeholder">Bereit für den nächsten Scan …</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHANGELOG -->
+    <section class="section section-alt" id="changelog">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Changelog</span>
+          <h2 class="section-title">Was sich<br /><span class="grad-text">getan hat.</span></h2>
+        </div>
+        <div class="news-list">
+          <article class="news-card glow-card reveal">
+            <div class="news-meta"><span class="news-tag new">NEU</span><time>v1.2.0</time></div>
+            <h3>Speicher-Übersicht &amp; Selbst-Update</h3>
+            <p>ZAVIRO Cleaner zeigt jetzt alle Laufwerke mit Belegung und bringt sein eigenes Update-System mit.</p>
+            <ul>
+              <li>💾 Neue Speicher-Ansicht mit Gesamt-, freiem und belegtem Platz pro Laufwerk</li>
+              <li>🔍 Automatische Erkennung von SSD, HDD, NVMe und USB-Laufwerken</li>
+              <li>🔄 Selbst-Update: automatische Prüfung beim Start, Download und Installation aus der App</li>
+              <li>🧩 Überarbeitete Treiber-Prüfung mit Windows-Update-Installation</li>
+              <li>🔐 Neustart als Administrator funktioniert jetzt zuverlässig (UAC)</li>
+            </ul>
+          </article>
+          <article class="news-card glow-card reveal">
+            <div class="news-meta"><span class="news-tag">v1.1.0</span><time>Installer &amp; Treiber</time></div>
+            <h3>Installer repariert, Treiber-Check ergänzt</h3>
+            <p>Der NSIS-Installer hing beim Start – jetzt installiert er sauber pro Benutzer. Dazu kam die Treiber-Prüfung.</p>
+            <ul>
+              <li>📦 Installer läuft ohne Hänger durch (CurrentUser-Modus)</li>
+              <li>🧩 Gerätetreiber prüfen und über Windows Update aktualisieren</li>
+              <li>🔗 Direktlink zur offiziellen Herstellerseite je Gerät</li>
+            </ul>
+          </article>
+          <article class="news-card glow-card reveal">
+            <div class="news-meta"><span class="news-tag">v1.0.0</span><time>Erste Version</time></div>
+            <h3>Erste öffentliche Version</h3>
+            <p>Systembereinigung, Autostart-Verwaltung, Prozesse, Duplikate, große Dateien und Registry-Check in einer Oberfläche.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section class="section download-section" id="download">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Download</span>
+          <h2 class="section-title">Eine Datei.<br /><span class="grad-text">Sofort startklar.</span></h2>
+          <p class="section-sub">Kein Account, kein Installer-Framework, keine Werbung.</p>
+        </div>
+        <div class="download-hero">
+          <div class="download-card glow-card reveal">
+            <span class="download-logo-ring"><img class="download-logo" src="logo.png" alt="ZAVIRO Cleaner" /></span>
+            <h3>ZAVIRO Cleaner</h3>
+            <p class="download-version">v1.2.0 · Windows 10/11 (x64) · 77&nbsp;MB</p>
+            <a class="btn btn-primary btn-lg download-btn" href="https://zaviro-cleaner-update.netlify.app/ZAVIRO%20Cleaner%20Setup%201.2.0.exe" download>
+              <span class="btn-glow"></span>⬇ Installer laden
+            </a>
+            <p class="download-hint">Der Installer installiert pro Benutzer – kein „für alle Benutzer"-Dialog. Updates laufen danach direkt aus der App.</p>
+            <p class="download-hash">SHA-256 (Installer): <code>DC6D930AA575101DEC8618BCAECE0AA4314B00D0FBCB9D3ABFA105C88EED64F0</code></p>
+          </div>
+          <div class="download-info reveal-right">
+            <h3>Systemanforderungen</h3>
+            <ul>
+              <li>✅ Windows 10 oder 11 (64-bit)</li>
+              <li>✅ ~150 MB freier Speicher</li>
+              <li>✅ Internet nur für Update-Prüfung und Treiber</li>
+              <li>✅ Keine weiteren Programme nötig</li>
+            </ul>
+            <h3>Erster Start</h3>
+            <ol>
+              <li>Installer ausführen</li>
+              <li>SmartScreen-Warnung bestätigen („Trotzdem ausführen“)</li>
+              <li>Auf „Schnell scannen“ klicken</li>
+              <li>Treffer prüfen und gezielt löschen</li>
+            </ol>
+            <h3>Updates</h3>
+            <p>ZAVIRO Cleaner prüft beim Start automatisch auf neue Versionen und installiert sie auf Wunsch mit einem Klick.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONATE -->
+    <section class="section donate-section" id="donate">
+      <div class="container">
+        <div class="donate-card glow-card reveal" id="donate-card">
+          <div id="donate-prompt">
+            <span class="donate-icon">💙</span>
+            <h2 class="donate-title">Gefällt dir ZAVIRO Cleaner?</h2>
+            <p class="donate-text">
+              ZAVIRO wird mit Leidenschaft entwickelt und soll für alle kostenlos bleiben.
+              Wenn dir das Projekt gefällt, kannst du die Weiterentwicklung mit einer freiwilligen
+              Spende unterstützen.
+            </p>
+            <a class="btn btn-primary btn-lg donate-btn" href="https://www.paypal.me/ZAVIR0" id="donate-button" target="_blank" rel="noreferrer">
+              <span class="btn-glow"></span>💙 ZAVIRO unterstützen
+            </a>
+            <p class="donate-note">Jede Unterstützung hilft. Vielen Dank!</p>
+          </div>
+
+          <div id="donate-thanks" hidden>
+            <span class="donate-thanks-icon">🎉</span>
+            <h2 class="donate-title">Vielen Dank für deine Unterstützung!</h2>
+            <p class="donate-text">
+              Deine Spende hilft, ZAVIRO weiterzuentwickeln und für alle kostenlos zu halten.
+              Das bedeutet uns wirklich viel. 💙
+            </p>
+            <p class="donate-note">Du kannst dieses Fenster jetzt schließen – oder weiter ZAVIRO entdecken.</p>
+            <a class="btn btn-ghost donate-btn" href="#download" id="donate-thanks-back">← Zurück zu ZAVIRO</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>ZAVIRO Cleaner · v1.2.0</span>
+      <span>Keine Affiliation zu Microsoft Corporation.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Netlify-CLI-Verknüpfung
+.netlify/
+
+# Lokaler Dev-Server
+server.js
